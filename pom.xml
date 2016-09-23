@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ejlp12.redhat.poc</groupId>
+	<artifactId>inifile</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Parsing INI file format</name>
+
+	<properties>
+		<version.org.jboss.bom.brms>6.3.0.GA-redhat-3</version.org.jboss.bom.brms>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.bom.brms</groupId>
+				<artifactId>jboss-brms-bpmsuite-platform-bom</artifactId>
+				<type>pom</type>
+				<version>${version.org.jboss.bom.brms}</version>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+	<!-- 
+		<dependency>
+			<groupId>prupoc</groupId>
+			<artifactId>newbusiness</artifactId>
+			<version>1.1</version>
+		</dependency>
+	 -->
+	<dependency>
+	  <groupId>joda-time</groupId>
+	  <artifactId>joda-time</artifactId>
+	</dependency>	 
+		<dependency>
+			<groupId>org.kie.remote</groupId>
+			<artifactId>kie-remote-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.kie.server</groupId>
+			<artifactId>kie-server-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<!-- The enable-test profile just enables the test to be combiled -->
+		<profile>
+			<id>enable-test</id>
+			<!-- Enable Tests to be compiled -->
+			<properties>
+				<maven.test.skip>false</maven.test.skip>
+			</properties>
+		</profile>
+		<!-- The brms profile enable BRMS repository and the needed kmodule dependency -->
+		<profile>
+			<id>brms</id>
+			<!-- Enable BRMS Repository -->
+			<repositories>
+				<repository>
+					<id>brms-m2-repo</id>
+					<name>BRMS M2 Repo</name>
+					<url>http://localhost:8080/business-central/maven2/</url>
+				</repository>
+			</repositories>
+
+			<!-- Include BRMS Kmodule dependency -->
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.quickstarts.brms</groupId>
+					<artifactId>my-store-brms-kmodule</artifactId>
+					<version>1.0.0</version>
+				</dependency>
+			</dependencies>
+
+		</profile>
+	</profiles>
+
+	<repositories>
+			<repositories>
+				<repository>
+					<id>brms-m2-repo</id>
+					<name>BRMS M2 Repo</name>
+					<url>http://localhost:8080/business-central/maven2/</url>
+				</repository>
+			</repositories>
+		<!-- Maven repository with productized JBoss artifacts -->
+		<repository>
+			<id>redhat-product-repo</id>
+			<name>Red Hat Product Repository</name>
+			<url>https://maven.repository.redhat.com/ga</url>
+		</repository>
+	</repositories>
+</project>

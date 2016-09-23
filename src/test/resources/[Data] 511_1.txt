@@ -1,0 +1,107 @@
+[DOCUMENT TYPE]
+DocumentType=MainDocument
+
+[LIFE 1]
+Surname=DARYANTO
+Forenames=WIJAYA
+DateOfBirth=16/05/1991
+Gender=M
+MaritalStatus=Married
+
+[LIFE 1 BUILD]
+Height=1.70
+Weight=53
+
+[LIFE 1 HABITS]
+AlcoholConsumption=No
+AddictiveDrugUse=No
+MedicalDrugUse=No
+SmokerStatus=S
+
+[LIFE 1 OCCUPATIONS]
+Occupation=Nurse
+Occupation=<<None>>
+
+[LIFE 1 AVOCATIONS]
+Avocation=<<None>>
+
+[LIFE 1 COUNTRIES]
+Country=<<None>>
+CountryOfNationality=indonesia
+OnSocialVisitPass=No
+SocialVisaType=Tourist
+IDSubmitted=Yes
+IDProcessable=Yes
+
+[LIFE 1 IMPAIRMENTS]
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+Impairment=<<None>>
+
+[LIFE 1 SUM ASSUREDS]
+SumAssuredType=CurrentLifeSumAssured
+SumAssuredValue=800000000.00
+SumAssuredCurrency=IDR
+SumAssuredType=ExistingLifeSumAssuredThisCompany
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=CurrentADDSumAssured
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=ExistingADDSumAssuredThisCompany
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=CurrentTPDSumAssured
+SumAssuredValue=100000000.00
+SumAssuredCurrency=IDR
+SumAssuredType=ExistingTPDSumAssuredThisCompany
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=CurrentCISumAssured
+SumAssuredValue=1200000000.00
+SumAssuredCurrency=IDR
+SumAssuredType=ExistingCISumAssuredThisCompany
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=CurrentHospitalSumAssured
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=ExistingHospitalSumAssuredThisCompany
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+
+[LIFE 1 INCOME]
+IncomePerYear=300000000.00
+
+[POLICY]
+SPAJnumber=1000000001
+PolicyNumber=12345678
+ProposalReceiveDate=27/05/2016
+ProcessingDate=28/05/2016
+DistributionChannel=Agency
+PolicyCode=U1B
+ProductCode=U1BR
+ProposedLife=Life 1
+JointLife1=<<None>>
+JointLife2=<<None>>
+PolicyOwner=Life 1
+InsurableInterest=Own Life
+CoverType=Personal Cover
+RiskProfSignDateCheck=Yes
+RiskProfResult=Aggressive
+RiskProfSuitable=Yes
+SPAJComplete=Yes
+SQSComplete=Yes
+DocSupportComplete=Yes
+SignatureFraud=Yes
+KYCFlag=No
+RandomCheckMedical=No
+SalesBranchCode=ABC
