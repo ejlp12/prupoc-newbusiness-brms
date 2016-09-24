@@ -1,4 +1,4 @@
-package org.jbpm.test.kieserver;
+package com.redhat.poc.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,12 +7,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import org.jboss.netty.util.internal.jzlib.ZStream;
+import org.jbpm.test.kieserver.BrmsClientUtil;
 import org.kie.api.KieServices;
 import org.kie.api.command.BatchExecutionCommand;
 import org.kie.api.command.Command;
 import org.kie.api.command.KieCommands;
 import org.kie.api.runtime.ExecutionResults;
-import org.kie.api.runtime.rule.FactHandle;
+import org.kie.internal.runtime.helper.BatchExecutionHelper;
 import org.kie.server.api.marshalling.MarshallingFormat;
 import org.kie.server.api.model.KieContainerResource;
 import org.kie.server.api.model.KieContainerResourceList;
@@ -25,71 +27,50 @@ import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.RuleServicesClient;
 
+import com.redhat.poc.StringUtil;
+
 import prupoc.newbusiness.CoverageData;
 
-public class KieExecutionServerClientRuleTestBatch {
+public class TestRuleExecution {
 
 	private static KieServicesClient kieServicesClient = null;
 
     public static void main(String[] args) throws Exception {
-        long start = System.currentTimeMillis();     
-        
-        BrmsClientUtil.init();        
+        long start = System.currentTimeMillis();      
+
         kieServicesClient =  BrmsClientUtil.getKieServicesClient();
         
         // work with rules
         KieCommands commandsFactory = KieServices.Factory.get().getCommands();
+
+        CoverageData data1 = SampleDataFactory.getGenerator().getSingle();
+        final String INDENTIFIER = "DATAX";
         
         List<Command<?>> commands = new ArrayList<Command<?>>();
-        BatchExecutionCommand executionCommand =commandsFactory.newBatchExecution(commands);
-        
-        CoverageData data1 = new CoverageData();
-        data1.setDateOfBirth("11-Dec-2013");
-        data1.setHeight("47");
-        data1.setWeight("3.0");
-
-        CoverageData data2 = new CoverageData();
-        data2.setDateOfBirth("11-Dec-2016");
-        data2.setHeight("58");
-        data2.setWeight("3.0");
-
-        CoverageData data3 = new CoverageData();
-        data3.setDateOfBirth("11-Dec-2016");
-        data3.setHeight("69");
-        data3.setWeight("3.0");
-        
-        List<Object> factData = new ArrayList<Object>();
-        factData.add(data1);
-        factData.add(data2);
-        factData.add(data3);
-        
-        
-        //commands.add(commandsFactory.newDelete(FactHandle.));
-        commands.add(commandsFactory.newInsertElements(factData, "factData"));
+        commands.add(commandsFactory.newInsert(data1, INDENTIFIER));
         commands.add(commandsFactory.newFireAllRules());
         commands.add(commandsFactory.newAgendaGroupSetFocus("rule-bmi-female"));
         
-        // If we use this, result become an ArrayList and contains many CoverageData
-        commands.add(commandsFactory.newGetObjects("factData"));
+        BatchExecutionCommand executionCommand = commandsFactory.newBatchExecution(commands);
         
+        String xStreamXml = BatchExecutionHelper.newXStreamMarshaller().toXML(executionCommand);
+        System.out.println("\t######### Request XML: \n" + xStreamXml); 
 
         RuleServicesClient ruleClient = kieServicesClient.getServicesClient(RuleServicesClient.class);
-        ServiceResponse<ExecutionResults> response = ruleClient.executeCommandsWithResults(BrmsClientUtil.getContainerId(), executionCommand);
+        ServiceResponse<ExecutionResults> response = ruleClient.executeCommandsWithResults(BrmsClientUtil.getContainerId(), xStreamXml);
         System.out.println("\t######### Rules executed. Response: " + response);
         
         Object outputObject;
         if (response.getType().equals(ResponseType.SUCCESS)){
         	ExecutionResults actualData = response.getResult();
-      	
+        	
+        	System.out.println("\t######### Result BMI: " + ((CoverageData) actualData.getValue(INDENTIFIER)).getRuleResultBMI() );
+        	
         	Collection<String> identifiers = actualData.getIdentifiers();
         	for (String id : identifiers) { 
         		outputObject = actualData.getValue(id); 
-        		System.out.println("\t\t######### Response data -> id: " + id + ", value: " + outputObject.getClass().getCanonicalName() + " -> ");
-        		System.out.println("\t\t\t" + outputObject);
+        		System.out.println("\t\t######### Response data -> id: " + id + ", value: " + StringUtil.toString(outputObject) );
 
-        		for (Object obj : (List) outputObject) {
-        			System.out.println("\t\t\t######### Output: " + obj);
-        		}
         	}
         }  else {
         	System.out.println("\t######### Error executing rules. Message: " + response.getMsg());
@@ -99,5 +80,6 @@ public class KieExecutionServerClientRuleTestBatch {
 
 
     }
-  
+    
+ 
 }

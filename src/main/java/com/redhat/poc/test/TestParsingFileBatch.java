@@ -27,12 +27,13 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.RuleServicesClient;
 
 import com.redhat.poc.CoverageDataParser;
+import com.redhat.poc.StringUtil;
 
 import prupoc.newbusiness.CoverageData;
 import prupoc.newbusiness.SumAssured;
 
 
-public class TestParsingFile {
+public class TestParsingFileBatch {
 
 	public static void main(String[] args) {
 		
@@ -40,27 +41,37 @@ public class TestParsingFile {
 			SampleDataFactory.setGeneratorType(SampleDataFactory.GENERATOR_FROM_FILE);			
 			SampleDataGeneratorInf generator = SampleDataFactory.getGenerator();
 			
-			CoverageData data = generator.getSingle();
+			System.out.println("\t#### Directory to be scanned: " + SampleDataFromFileGenerator.INPUT_DIR);
 			
-			System.out.println("=====================");
+			// Read all files in directory
+			List<Object>  dataList = generator.getList();
 			
-			// Print out object just for testing
-			System.out.println(data);
-			
-			// Print out field which has multiple data (List)
-			for (SumAssured data1 : data.getSumAssured()) {
-				System.out.println( "sumAssured =" + data1 );
-			}
-			for (String data1 : data.getOccupation()) {
-				System.out.println( "occupation = " + data1 );
-			}
 
-			for (String data1 : data.getImpairment()) {
-				System.out.println( "impairment = " + data1 );
+			System.out.println("\t#### Found data files, count: " + dataList.size());
+			
+			// Print out all result data after parsing
+			for ( Object obj : dataList) {
+				System.out.println("=====================");
+				
+				// Print out object just for testing
+				CoverageData data = (CoverageData) obj;
+				System.out.println(StringUtil.toString(data));
+				
+				// Print out field which has multiple data (List)
+				for (SumAssured data1 : data.getSumAssured()) {
+					System.out.println( "sumAssured =" + data1 );
+				}
+				for (String data1 : data.getOccupation()) {
+					System.out.println( "occupation = " + data1 );
+				}
+	
+				for (String data1 : data.getImpairment()) {
+					System.out.println( "impairment = " + data1 );
+				}
+				for (String data1 : data.getAvocation()) {
+					System.out.println( "avocation = " + data1 );
+				}	
 			}
-			for (String data1 : data.getAvocation()) {
-				System.out.println( "avocation = " + data1 );
-			}			
 			
 	}
 	

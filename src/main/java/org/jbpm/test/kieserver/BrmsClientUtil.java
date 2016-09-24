@@ -24,20 +24,18 @@ import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.RuleServicesClient;
 
+import com.redhat.poc.test.AppProperties;
+
 import prupoc.newbusiness.CoverageData;
 
 public class BrmsClientUtil {
 
 	private static KieServicesClient kieServicesClient = null;
-	private static ResourceBundle properties;
 	private static String containerId;
 	
-	static {
-		properties = ResourceBundle.getBundle("Application");
-		containerId = properties.getString("brms.containerId");
-	}
 
     public static KieServicesClient getKieServicesClient() {
+    	if (kieServicesClient == null) init();
     	return kieServicesClient;
     }
     
@@ -47,13 +45,13 @@ public class BrmsClientUtil {
     	
     public static void init() {
         
-        final String serverUrl = properties.getString("brms.kieServerUrl");
-        final String user = properties.getString("brms.username");;
-        final String password = properties.getString("brms.password");;
-        final long timeoutMilis = Long.parseLong(properties.getString("brms.timeoutMilis"));
-        final MarshallingFormat FORMAT = MarshallingFormat.JAXB; //MarshallingFormat.JSON
+        final String serverUrl = AppProperties.getString("brms.kieServerUrl");
+        final String user = AppProperties.getString("brms.username");;
+        final String password = AppProperties.getString("brms.password");;
+        final long timeoutMilis = Long.parseLong(AppProperties.getString("brms.timeoutMilis"));
+        final MarshallingFormat FORMAT = MarshallingFormat.XSTREAM; //MarshallingFormat.JSON, MarshallingFormat.JAXB
         
-        final String projectRelease = properties.getString("brms.projectRelease");
+        final String projectRelease = AppProperties.getString("brms.projectRelease");
 
 
         
@@ -83,7 +81,9 @@ public class BrmsClientUtil {
                 for (KieContainerResource kieContainerResource : containers.getContainers()) {
                     if (kieContainerResource.getContainerId().equals(containerId)) {
                         System.out.println("\t######### Found container '" + containerId + "' skipping deployment...");
-                        System.out.println("\t######### Container status " + kieContainerResource.getStatus());
+                        System.out.println("\t\t######### Status " + kieContainerResource.getStatus());
+                        System.out.println("\t\t######### ReleaseId " + kieContainerResource.getReleaseId());
+                        System.out.println("\t\t######### ResolvedReleaseId " + kieContainerResource.getResolvedReleaseId());
                         deployContainer = false;
                         break;
                     }
@@ -111,6 +111,15 @@ public class BrmsClientUtil {
         }
 		
 	}
+    
+    public void listContainers() {  
+        KieContainerResourceList containersList = kieServicesClient.listContainers().getResult();  
+        List<KieContainerResource> kieContainers = containersList.getContainers();  
+        System.out.println("Available containers: ");  
+        for (KieContainerResource container : kieContainers) {  
+            System.out.println("\t" + container.getContainerId() + " (" + container.getReleaseId() + ")");  
+        }  
+    }
     
     public static void disposeContainer(String containerId) {
 
