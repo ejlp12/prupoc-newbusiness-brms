@@ -1,4 +1,4 @@
-package org.jbpm.test.kieserver;
+package com.redhat.gss.jbpm;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,7 +32,7 @@ import org.kie.server.client.QueryServicesClient;
 import org.kie.server.client.RuleServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
 
-public class KieExecutionServerClientTest {
+public class BrmsExecutionService {
 
 
     public static void main(String[] args) throws Exception {

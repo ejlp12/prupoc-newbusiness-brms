@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import org.jboss.netty.util.internal.jzlib.ZStream;
-import org.jbpm.test.kieserver.BrmsClientUtil;
 import org.kie.api.KieServices;
 import org.kie.api.command.BatchExecutionCommand;
 import org.kie.api.command.Command;
@@ -28,6 +27,7 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.RuleServicesClient;
 
 import com.redhat.poc.StringUtil;
+import com.redhat.poc.brms.BrmsClientUtil;
 
 import prupoc.newbusiness.CoverageData;
 

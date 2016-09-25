@@ -1,4 +1,4 @@
-package org.jbpm.test.kieserver;
+package com.redhat.poc.brms;
 
 import prupoc.newbusiness.CoverageData;
 

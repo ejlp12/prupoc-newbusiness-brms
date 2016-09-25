@@ -1,15 +1,9 @@
-package org.jbpm.test.kieserver;
+package com.redhat.poc.brms;
 
 import prupoc.newbusiness.CoverageData;
 import prupoc.newbusiness.RuleResultOccupationBenefit;
 
-public class PrupocBrmsClientDummy implements PrupocBrmsClientInf {
-	
-	
-	public static String RULE_FLOW_GROUP_NON_MED_LIMIT = "rule-non-med-limit";
-	public static String RULE_FLOW_GROUP_BENEFIT_COMPONENT = "rule-benefit-component";
-	public static String RULE_FLOW_GROUP_INSURABLE_INTEREST = "rule-insurable-interest";
-	public static String RULE_FLOW_GROUP_BMI = "rule-bmi";
+public class PrupocBrmsClient implements PrupocBrmsClientInf {
 	
 	public CoverageData executeRuleNonMedLimit(CoverageData data) {
 		

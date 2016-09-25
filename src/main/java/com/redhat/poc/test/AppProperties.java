@@ -4,11 +4,11 @@ import java.util.ResourceBundle;
 
 public class AppProperties {
 	private static ResourceBundle properties;
-	private static String containerId;
+	public static String CONTAINER_ID;
 	
 	static {
 		properties = ResourceBundle.getBundle("Application");
-		containerId = properties.getString("brms.containerId");
+		CONTAINER_ID = properties.getString("brms.containerId");
 	}
 	
 	public static String getString(String key) {

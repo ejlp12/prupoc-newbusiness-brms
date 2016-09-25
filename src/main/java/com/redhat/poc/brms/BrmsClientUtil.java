@@ -1,4 +1,4 @@
-package org.jbpm.test.kieserver;
+package com.redhat.poc.brms;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -50,9 +50,9 @@ public class BrmsClientUtil {
         final String password = AppProperties.getString("brms.password");;
         final long timeoutMilis = Long.parseLong(AppProperties.getString("brms.timeoutMilis"));
         final MarshallingFormat FORMAT = MarshallingFormat.XSTREAM; //MarshallingFormat.JSON, MarshallingFormat.JAXB
-        
         final String projectRelease = AppProperties.getString("brms.projectRelease");
-
+        
+        containerId = AppProperties.CONTAINER_ID;
 
         
         KieServicesConfiguration configuration = KieServicesFactory.newRestConfiguration(serverUrl, user, password, timeoutMilis);
@@ -64,7 +64,7 @@ public class BrmsClientUtil {
 
         kieServicesClient =  KieServicesFactory.newKieServicesClient(configuration);
         
-        //disposeContainer(containerId);
+        disposeContainer(containerId);
         checkAndDeployContainter(containerId, projectRelease);
         //listCapabilities();
         
@@ -74,7 +74,7 @@ public class BrmsClientUtil {
         boolean deployContainer = true;
         KieContainerResourceList containers = kieServicesClient.listContainers().getResult();
         // check if the container is not yet deployed, if not deploy it
-        if (containers != null) {
+        if (containers != null && containers.getContainers() != null) {
         	if (containers.getContainers().size() == 0) {
         		System.out.println("\t######### No containers available...");
         	} else {		
@@ -96,7 +96,7 @@ public class BrmsClientUtil {
         // deploy container if not there yet        
         if (deployContainer) {
         	System.out.println("\t######### EJLP12: Container containerId='" + containerId + "' not found");
-            System.out.println("\t######### Deploying container " + containerId);
+            System.out.println("\t######### Deploying container '" + containerId + "'");
             
             final String[] releaseParts = projectRelease.split(":");
             final ReleaseId releaseId = new ReleaseId(releaseParts[0], releaseParts[1], releaseParts[2]);
