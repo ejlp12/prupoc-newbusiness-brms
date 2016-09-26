@@ -13,9 +13,11 @@ public class TestRuleExecutionBatch {
 
     public static void main(String[] args) throws Exception {
     	
+    	// It will read all txt files in a directory, parse and generate CoverageData objects
     	SampleDataFactory.setGeneratorType(SampleDataFactory.GENERATOR_FROM_FILE);
     	List<Object> factData = SampleDataFactory.getGenerator().getList();
     	
+    	// Execute in the remote BRMS server (container)
     	List<Object> ruleResult = BrmsBatchExecutionService.execute(factData, "rule-bmi-female");
     	
     	if (ruleResult != null) {
