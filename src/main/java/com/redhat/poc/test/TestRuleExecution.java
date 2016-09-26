@@ -1,11 +1,8 @@
 package com.redhat.poc.test;
 
-import java.util.List;
-
 import prupoc.newbusiness.CoverageData;
 
 import com.redhat.poc.StringUtil;
-import com.redhat.poc.brms.BrmsBatchExecutionService;
 import com.redhat.poc.brms.BrmsExecutionService;
 
 public class TestRuleExecution {
