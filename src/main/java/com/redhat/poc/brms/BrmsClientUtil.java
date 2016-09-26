@@ -32,6 +32,7 @@ public class BrmsClientUtil {
 
 	private static KieServicesClient kieServicesClient = null;
 	private static String containerId;
+	private static Set<Class<?>> classes = new HashSet<Class<?>>();
 	
 
     public static KieServicesClient getKieServicesClient() {
@@ -46,22 +47,33 @@ public class BrmsClientUtil {
     public static void init() {
         
         final String serverUrl = AppProperties.getString("brms.kieServerUrl");
-        final String user = AppProperties.getString("brms.username");;
+        final String user = AppProperties.getString("brms.username");
         final String password = AppProperties.getString("brms.password");;
         final long timeoutMilis = Long.parseLong(AppProperties.getString("brms.timeoutMilis"));
         final MarshallingFormat FORMAT = MarshallingFormat.XSTREAM; //MarshallingFormat.JSON, MarshallingFormat.JAXB
         final String projectRelease = AppProperties.getString("brms.projectRelease");
         
         containerId = AppProperties.CONTAINER_ID;
-
         
         KieServicesConfiguration configuration = KieServicesFactory.newRestConfiguration(serverUrl, user, password, timeoutMilis);
-        configuration.setMarshallingFormat(FORMAT);
+        configuration.setMarshallingFormat(FORMAT);   
         
-        Set<Class<?>> classes = new HashSet<Class<?>>();
-        classes.add(CoverageData.class);
-        configuration.addJaxbClasses(classes);        
-
+        // Adding POJO (model object) for marshalling/unmarshaling
+        //classes.add(CoverageData.class);
+        //configuration.addJaxbClasses(classes);  
+        String[] classNames = AppProperties.getString("brms.dataObjects").split(",");
+        for (String className : classNames) {
+        	try {
+				classes.add(Class.forName(className));
+			} catch (ClassNotFoundException e) {
+				System.err.println("Cannot load class for marshaling/unmarshaling, className: " + className );
+			}
+        }
+        configuration.addJaxbClasses(classes); 
+        
+        
+        
+        
         kieServicesClient =  KieServicesFactory.newKieServicesClient(configuration);
         
         disposeContainer(containerId);

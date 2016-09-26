@@ -48,8 +48,9 @@ public class TestRuleExecution {
         
         List<Command<?>> commands = new ArrayList<Command<?>>();
         commands.add(commandsFactory.newInsert(data1, INDENTIFIER));
-        commands.add(commandsFactory.newFireAllRules());
         commands.add(commandsFactory.newAgendaGroupSetFocus("rule-bmi-female"));
+        commands.add(commandsFactory.newFireAllRules());
+        
         
         BatchExecutionCommand executionCommand = commandsFactory.newBatchExecution(commands);
         
