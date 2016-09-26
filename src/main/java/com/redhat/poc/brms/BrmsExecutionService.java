@@ -23,6 +23,8 @@ import com.redhat.poc.test.SampleDataFactory;
 public class BrmsExecutionService {
 
 	private static KieServicesClient kieServicesClient = null;
+	private static String FACT_IDENTIFIER = "id.factData";
+	private static String FIRED_RULES_IDENTIFIER = "id.firedRule";
 
     public static Object execute(Object factData, String ruleFlowGroup) {
         long start = System.currentTimeMillis();     
@@ -34,12 +36,9 @@ public class BrmsExecutionService {
         KieCommands commandsFactory = KieServices.Factory.get().getCommands();
         
         List<Command<?>> commands = new ArrayList<Command<?>>();                
-        commands.add(commandsFactory.newInsert(factData, "factData"));        
+        commands.add(commandsFactory.newInsert(factData, FACT_IDENTIFIER));        
         commands.add(commandsFactory.newAgendaGroupSetFocus(ruleFlowGroup));  
-        commands.add(commandsFactory.newFireAllRules("firedRules"));
-        // If we use this, result become an ArrayList and contains many CoverageData
-        commands.add(commandsFactory.newGetObjects("factData"));
-        
+        commands.add(commandsFactory.newFireAllRules(FIRED_RULES_IDENTIFIER));
         
         BatchExecutionCommand executionCommand = commandsFactory.newBatchExecution(commands);
         
@@ -55,6 +54,7 @@ public class BrmsExecutionService {
         System.out.println("\t######### Response XML: \n" + xStreamXml); 
         
         Object outputObject = null;
+        Object returnObject = null;
         if (response.getType().equals(ResponseType.SUCCESS)){
         	ExecutionResults actualData = response.getResult();
       	
@@ -63,6 +63,10 @@ public class BrmsExecutionService {
         		outputObject = actualData.getValue(id); 
         		System.out.println("\t\t######### Response data -> id: " + id + ", value: " + outputObject.getClass().getCanonicalName() + " -> ");
         		System.out.println("\t\t\t" + outputObject);
+        		
+        		if (id.equals(FACT_IDENTIFIER)) {
+        			returnObject = outputObject;
+        		}
 
         	}
         }  else {
@@ -70,7 +74,7 @@ public class BrmsExecutionService {
         }
         
         System.out.println("Execution completed in " + (System.currentTimeMillis() - start));
-        return outputObject;
+        return returnObject;
 
 
     }
