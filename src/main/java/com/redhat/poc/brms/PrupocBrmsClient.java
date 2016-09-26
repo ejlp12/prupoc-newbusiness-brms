@@ -7,40 +7,34 @@ public class PrupocBrmsClient implements PrupocBrmsClientInf {
 	
 	public CoverageData executeRuleNonMedLimit(CoverageData data) {
 		
-		data.setRuleResultNonMedicalLimit("T9M");
-		return data;	
+		// Execute in the remote BRMS server (container)
+    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(data, BrmsConstants.RULE_FLOW_GROUP_NON_MED_LIMIT);
+		
+		return ruleResult;	
 	}
 	
 	public CoverageData executeRuleBenefitComponent(CoverageData data) {
-		data.setRuleResultBenefitADD("3x");
-		data.setRuleResultBenefitCC("Standard");
-		data.setRuleResultBenefitHealth("Decline");
-		data.setRuleResultBenefitLife("RDO");
-		data.setRuleResultBenefitTPD("RDO");
 		
-		RuleResultOccupationBenefit benefit = new RuleResultOccupationBenefit();
-		benefit.setADD("3x");
-		benefit.setCC("Standard");
-		benefit.setHealth("Decline");
-		benefit.setLife("RDO");
-		benefit.setTPD("RDO");
+    	// Execute in the remote BRMS server (container)
+    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(data, BrmsConstants.RULE_FLOW_GROUP_BENEFIT_COMPONENT);
 		
-		data.setRuleResultOccupationBenefit(benefit);
-		
-		return data;
+		return ruleResult;
 	}
 
 	public CoverageData executeRuleInsurableIntereset(CoverageData data) {
-		data.setRuleResultInsurableInterest("Standard");
-		//data.setRuleResultInsurableInterest("Refer");
-		return data;
+		
+		// Execute in the remote BRMS server (container)
+    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(data, BrmsConstants.RULE_FLOW_GROUP_INSURABLE_INTEREST);
+		
+		return ruleResult;
 	}
 	
 	public CoverageData executeRuleBMI(CoverageData data) {
-		data.setRuleResultBMI("Standard");
-		//data.setRuleResultBMI("Refer");
+
+		// Execute in the remote BRMS server (container)
+    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(data, BrmsConstants.RULE_FLOW_GROUP_BMI);
 		
-		return data;
+		return ruleResult;
 	}	
 	
 	

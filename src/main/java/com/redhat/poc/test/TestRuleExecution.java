@@ -6,6 +6,9 @@ import com.redhat.poc.StringUtil;
 import com.redhat.poc.brms.BrmsExecutionService;
 
 public class TestRuleExecution {
+	
+	// Set rule-flow-group or activation-group for testing
+	static String ACTIVATION_GROUP = "rule-bmi-female";	
 
     public static void main(String[] args) throws Exception {
     	
@@ -15,7 +18,7 @@ public class TestRuleExecution {
     	CoverageData factData = SampleDataFactory.getGenerator().getSingle();
     	
     	// Execute in the remote BRMS server (container)
-    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(factData, "rule-bmi-female");
+    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(factData, ACTIVATION_GROUP);
     	
     	if (ruleResult != null ) {
     		System.out.println("\t#### Result: " + StringUtil.printSimple(ruleResult));	

@@ -10,15 +10,19 @@ import com.redhat.poc.StringUtil;
 import com.redhat.poc.brms.BrmsBatchExecutionService;
 
 public class TestRuleExecutionBatch {
+	
+	// Set rule-flow-group or activation-group for testing
+	static String ACTIVATION_GROUP = "rule-bmi-female";
+	
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {	
     	
     	// It will read all txt files in a directory, parse and generate CoverageData objects
     	SampleDataFactory.setGeneratorType(SampleDataFactory.GENERATOR_FROM_FILE);
     	List<Object> factData = SampleDataFactory.getGenerator().getList();
     	
     	// Execute in the remote BRMS server (container)
-    	List<Object> ruleResult = BrmsBatchExecutionService.execute(factData, "rule-bmi-female");
+    	List<Object> ruleResult = BrmsBatchExecutionService.execute(factData, ACTIVATION_GROUP);
     	
     	if (ruleResult != null) {
     		int i = 1;
