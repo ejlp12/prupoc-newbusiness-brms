@@ -32,7 +32,7 @@ import org.kie.server.client.QueryServicesClient;
 import org.kie.server.client.RuleServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
 
-public class BrmsExecutionService {
+public class KieExecutionServerClientRuleTest {
 
 
     public static void main(String[] args) throws Exception {
