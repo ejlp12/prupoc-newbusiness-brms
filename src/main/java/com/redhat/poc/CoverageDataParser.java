@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,8 +127,12 @@ public class CoverageDataParser {
 		
 		
 		
-		data.setAgeInMonth(Utility.calculateAgeInMonth(data.getDateOfBirth(), "dd/MM/yyyy"));
-		data.setAgeInYear(Utility.calculateAgeInYear(data.getDateOfBirth(), "dd/MM/yyyy"));
+		try {
+			data.setAgeInMonth(Utility.calculateAgeInMonth(data.getDateOfBirth(), "dd/MM/yyyy"));
+			data.setAgeInYear(Utility.calculateAgeInMonth(data.getDateOfBirth(), "dd/MM/yyyy"));
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
 		
 		// Set all array variables
 		data.setOccupation( occupations );
