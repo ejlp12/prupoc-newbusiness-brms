@@ -2,8 +2,8 @@
 DocumentType=MainDocument
 
 [LIFE 1]
-Surname=DARYANTO
-Forenames=WIJAYA
+Surname=BUDI
+Forenames=IMANUDIN
 DateOfBirth=16/05/1991
 Gender=M
 MaritalStatus=Married
@@ -75,6 +75,9 @@ SumAssuredType=CurrentHospitalSumAssured
 SumAssuredValue=0.00
 SumAssuredCurrency=IDR
 SumAssuredType=ExistingHospitalSumAssuredThisCompany
+SumAssuredValue=0.00
+SumAssuredCurrency=IDR
+SumAssuredType=ExistingHospitalSumAssuredThisCompanyXXX
 SumAssuredValue=0.00
 SumAssuredCurrency=IDR
 

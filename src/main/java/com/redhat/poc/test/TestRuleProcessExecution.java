@@ -5,11 +5,12 @@ import prupoc.newbusiness.CoverageData;
 import com.redhat.poc.StringUtil;
 import com.redhat.poc.brms.BrmsConstants;
 import com.redhat.poc.brms.BrmsExecutionService;
+import com.redhat.poc.brms.BrmsProcessExecutionService;
 
-public class TestRuleExecution {
+public class TestRuleProcessExecution {
 	
 	// Set rule-flow-group or activation-group for testing
-	static String ACTIVATION_GROUP = BrmsConstants.RULE_FLOW_GROUP_BENEFIT_COMPONENT;	
+	static String PROCESS_NAME = "newbusiness.ruleflow_non_med_limit";
 
     public static void main(String[] args) throws Exception {
     	
@@ -19,12 +20,18 @@ public class TestRuleExecution {
     	CoverageData factData = SampleDataFactory.getGenerator().getSingle();
     	
     	// Execute in the remote BRMS server (container)
-    	CoverageData ruleResult = (CoverageData) BrmsExecutionService.execute(factData, ACTIVATION_GROUP);
+    	CoverageData ruleResult = (CoverageData) BrmsProcessExecutionService.execute(factData, PROCESS_NAME);
     	
     	if (ruleResult != null ) {
     		System.out.println("\t#### Result: " + StringUtil.printSimple(ruleResult));	
+    		System.out.println("\t#### Result: " + ruleResult.getAgeInYear());	
+    		System.out.println("\t#### getAgeInYear: " + ruleResult.getAgeInYear());	
+    		System.out.println("\t#### getRuleResultProductCategory: " + ruleResult.getRuleResultProductCategory());
+    		System.out.println("\t#### getRuleResultSumAssuredHigherIDRNML: " + ruleResult.getRuleResultSumAssuredHigherIDRNML());
+    		System.out.println("\t#### getRuleResultNonMedicalLimit: " + ruleResult.getRuleResultNonMedicalLimit());
+    		
     	} else {
-    		System.err.println("\t#### Batch rule execution is failed");
+    		System.err.println("\t#### Rule execution is failed");
     	}
 
     	

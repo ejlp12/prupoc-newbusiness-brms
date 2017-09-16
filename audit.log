@@ -1,0 +1,233 @@
+<object-stream>
+<org.drools.core.audit.WorkingMemoryLog>
+  <version>6.1</version>
+  <events>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>1</factId>
+      <objectToString>CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=53, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Nurse, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1991, ageInYear=25, ageInMonth=304, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>2</factId>
+      <objectToString>CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>3</factId>
+      <objectToString>CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=T6F, productCode=T6FR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>4</factId>
+      <objectToString>CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Engineer, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>5</factId>
+      <objectToString>CoverageData [documentType=MainDocument, gender=F, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Housewife, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=PUTRI, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>rule_bmi_refer [5]</activationId>
+      <rule>rule_bmi_refer</rule>
+      <declarations>data1=CoverageData [documentType=MainDocument, gender=F, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Housewife, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=PUTRI, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>5</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>rule_bmi_refer [4]</activationId>
+      <rule>rule_bmi_refer</rule>
+      <declarations>data1=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Engineer, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>4</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>rule_bmi_refer [3]</activationId>
+      <rule>rule_bmi_refer</rule>
+      <declarations>data1=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=T6F, productCode=T6FR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>3</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>rule_bmi_refer [2]</activationId>
+      <rule>rule_bmi_refer</rule>
+      <declarations>data1=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>rule_bmi_refer [1]</activationId>
+      <rule>rule_bmi_refer</rule>
+      <declarations>data1=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=53, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Nurse, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1991, ageInYear=25, ageInMonth=304, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Year [5]</activationId>
+      <rule>Calculate Age in Year</rule>
+      <declarations>$bd=16/05/1986; $m=CoverageData [documentType=MainDocument, gender=F, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Housewife, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=PUTRI, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>5</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Year [4]</activationId>
+      <rule>Calculate Age in Year</rule>
+      <declarations>$bd=16/05/1986; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Engineer, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>4</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Year [3]</activationId>
+      <rule>Calculate Age in Year</rule>
+      <declarations>$bd=16/05/1980; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=T6F, productCode=T6FR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>3</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Year [2]</activationId>
+      <rule>Calculate Age in Year</rule>
+      <declarations>$bd=16/05/1980; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Year [1]</activationId>
+      <rule>Calculate Age in Year</rule>
+      <declarations>$bd=16/05/1991; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=53, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Nurse, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1991, ageInYear=25, ageInMonth=304, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Month [5]</activationId>
+      <rule>Calculate Age in Month</rule>
+      <declarations>$bd=16/05/1986; $m=CoverageData [documentType=MainDocument, gender=F, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Housewife, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=PUTRI, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>5</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Month [4]</activationId>
+      <rule>Calculate Age in Month</rule>
+      <declarations>$bd=16/05/1986; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Engineer, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>4</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Month [3]</activationId>
+      <rule>Calculate Age in Month</rule>
+      <declarations>$bd=16/05/1980; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=T6F, productCode=T6FR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>3</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Month [2]</activationId>
+      <rule>Calculate Age in Month</rule>
+      <declarations>$bd=16/05/1980; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Calculate Age in Month [1]</activationId>
+      <rule>Calculate Age in Month</rule>
+      <declarations>$bd=16/05/1991; $m=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=53, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Nurse, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1991, ageInYear=25, ageInMonth=304, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]</declarations>
+      <ruleFlowGroup>rule-bmi</ruleFlowGroup>
+      <factHandleIds>1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentLifeSumAssured [1, 46]</activationId>
+      <rule>Set CurrentLifeSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=53, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Nurse, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1991, ageInYear=25, ageInMonth=304, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentLifeSumAssured, value=800000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=800000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=100000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=1200000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=800000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>1,46</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentLifeSumAssured [2, 36]</activationId>
+      <rule>Set CurrentLifeSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentLifeSumAssured, value=500000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=500000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=500000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=300000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=500000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>2,36</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentLifeSumAssured [3, 26]</activationId>
+      <rule>Set CurrentLifeSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=T6F, productCode=T6FR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentLifeSumAssured, value=5000000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=5000000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=5000000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>3,26</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentLifeSumAssured [4, 16]</activationId>
+      <rule>Set CurrentLifeSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Engineer, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentLifeSumAssured, value=150000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=150000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=100000000.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=150000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=100000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=500000.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=150000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>4,16</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentLifeSumAssured [5, 6]</activationId>
+      <rule>Set CurrentLifeSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=F, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Housewife, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=PUTRI, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentLifeSumAssured, value=1500000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=1500000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=1000000000.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=150000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=1000000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=2500000.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=1500000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>5,6</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentADDSumAssured [1, 98]</activationId>
+      <rule>Set CurrentADDSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=53, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Nurse, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1991, ageInYear=25, ageInMonth=304, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=800000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=100000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=1200000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=0.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>1,98</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentADDSumAssured [2, 88]</activationId>
+      <rule>Set CurrentADDSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=500000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=500000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=300000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=0.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>2,88</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentADDSumAssured [3, 78]</activationId>
+      <rule>Set CurrentADDSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.70, weight=60, policyNumber=12345678, policyCode=T6F, productCode=T6FR, policyOwner=Life 1, insurableInterest=Own Life, occupation=[Accountant, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1980, ageInYear=36, ageInMonth=436, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=5000000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=0.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=0.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>3,78</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentADDSumAssured [4, 68]</activationId>
+      <rule>Set CurrentADDSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=M, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Engineer, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=DARYANTO, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentADDSumAssured, value=100000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=150000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=100000000.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=150000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=100000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=500000.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=100000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>4,68</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Set CurrentADDSumAssured [5, 58]</activationId>
+      <rule>Set CurrentADDSumAssured</rule>
+      <declarations>$p=CoverageData [documentType=MainDocument, gender=F, maritalStatus=Married, height=1.72, weight=75, policyNumber=12345678, policyCode=U1B, productCode=U1BR, policyOwner=Third Party, insurableInterest=Wife, occupation=[Housewife, &lt;&lt;None&gt;&gt;], forenames=WIJAYA, surname=PUTRI, dateOfBirth=16/05/1986, ageInYear=30, ageInMonth=364, ruleResultBMI=null, ruleResultInsurableInterest=null, ruleResultOccupationBenefit=null, ruleResultNonMedicalLimit=null, ruleResultBenefitLife=null, ruleResultBenefitADD=null, ruleResultBenefitTPD=null, ruleResultBenefitCC=null, ruleResultBenefitHealth=null]; $sum1=SumAssured [type=CurrentADDSumAssured, value=1000000000.00, currency=IDR]; $sums=[SumAssured [type=CurrentLifeSumAssured, value=1500000000.00, currency=IDR], SumAssured [type=ExistingLifeSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentADDSumAssured, value=1000000000.00, currency=IDR], SumAssured [type=ExistingADDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentTPDSumAssured, value=150000000.00, currency=IDR], SumAssured [type=ExistingTPDSumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentCISumAssured, value=1000000000.00, currency=IDR], SumAssured [type=ExistingCISumAssuredThisCompany, value=0.00, currency=IDR], SumAssured [type=CurrentHospitalSumAssured, value=2500000.00, currency=IDR], SumAssured [type=ExistingHospitalSumAssuredThisCompany, value=0.00, currency=IDR]]; $value=1000000000.00</declarations>
+      <ruleFlowGroup>rule-non-med-limit</ruleFlowGroup>
+      <factHandleIds>5,58</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+  </events>
+  <engine>PHREAK</engine>
+</org.drools.core.audit.WorkingMemoryLog>
+</object-stream>

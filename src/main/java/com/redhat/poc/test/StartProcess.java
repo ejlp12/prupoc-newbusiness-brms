@@ -1,4 +1,4 @@
-package com.redhat.gss.jbpm;
+package com.redhat.poc.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,8 +32,7 @@ import org.kie.server.client.QueryServicesClient;
 import org.kie.server.client.RuleServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
 
-public class KieExecutionServerClientRuleTest {
-
+public class StartProcess {
 
     public static void main(String[] args) throws Exception {
         long start = System.currentTimeMillis();
@@ -42,7 +41,7 @@ public class KieExecutionServerClientRuleTest {
         String password = "Passw0rd!";
 
         String containerId = "prupoc";
-        String processId = "newbusiness.ruleflow_non_med_limit";
+        String processId = "newbusiness.simple-process";
 
         KieServicesConfiguration configuration = KieServicesFactory.newRestConfiguration(serverUrl, user, password);
 
@@ -72,10 +71,10 @@ public class KieExecutionServerClientRuleTest {
             KieContainerResource resource = new KieContainerResource(containerId, new ReleaseId("prupoc", "newbusiness", "1.2")); //EJLP12: change HR to human-resources
             kieServicesClient.createContainer(containerId, resource);
         }
-//        // query for all available process definitions
-//        QueryServicesClient queryClient = kieServicesClient.getServicesClient(QueryServicesClient.class);
-//        List<ProcessDefinition> processes = queryClient.findProcesses(0, 10);
-//        System.out.println("\t######### Available processes" + processes);
+        // query for all available process definitions
+        QueryServicesClient queryClient = kieServicesClient.getServicesClient(QueryServicesClient.class);
+        List<ProcessDefinition> processes = queryClient.findProcesses(0, 10);
+        System.out.println("\t######### Available processes" + processes);
 
         ProcessServicesClient processClient = kieServicesClient.getServicesClient(ProcessServicesClient.class);
         // get details of process definition
@@ -84,15 +83,14 @@ public class KieExecutionServerClientRuleTest {
 
         // start process instance
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("v_coveragedata", null);
-        params.put("age", 25);
+        params.put("v_spaj_no", "john");
         Long processInstanceId = processClient.startProcess(containerId, processId, params);
         System.out.println("\t######### Process instance id: " + processInstanceId);
         
-//        List<NodeInstance> completedNodes = queryClient.findCompletedNodeInstances(processInstanceId, 0, 10);
-//        System.out.println("\t######### Completed nodes: " + completedNodes);
+        List<NodeInstance> completedNodes = queryClient.findCompletedNodeInstances(processInstanceId, 0, 10);
+        System.out.println("\t######### Completed nodes: " + completedNodes);
 
-        user = "john";
+        user = "eryan";
         UserTaskServicesClient taskClient = kieServicesClient.getServicesClient(UserTaskServicesClient.class);
         // find available tasks
         //List<TaskSummary> tasks = taskClient.findTasksAssignedAsBusinessAdministrator(user, 0, 10);
@@ -111,55 +109,17 @@ public class KieExecutionServerClientRuleTest {
         taskClient.completeTask(containerId, taskId, user, null);
         System.out.println("\t######### Complete tasks by " + user);
         
-//        completedNodes = queryClient.findCompletedNodeInstances(processInstanceId, 0, 10);
-//        System.out.println("\t######### Completed nodes: " + completedNodes);
-//        
-//        List<ProcessInstance> instances = queryClient.findProcessInstances(0, 10);
-//        System.out.println("\t######### Active process instances: " + instances);
+        completedNodes = queryClient.findCompletedNodeInstances(processInstanceId, 0, 10);
+        System.out.println("\t######### Completed nodes: " + completedNodes);
+        
+        List<ProcessInstance> instances = queryClient.findProcessInstances(0, 10);
+        System.out.println("\t######### Active process instances: " + instances);
 
         // at the end abort process instance
         processClient.abortProcessInstance(containerId, processInstanceId);
 
-//        ProcessInstance processInstance = queryClient.findProcessInstanceById(processInstanceId);
-//        System.out.println("\t######### ProcessInstance: " + processInstance);
-        
-        System.out.println("Execution completed in " + (System.currentTimeMillis() - start));
-        
-        
-        
-        start = System.currentTimeMillis();
-        
-        // work with rules
-        List<GenericCommand<?>> commands = new ArrayList<GenericCommand<?>>();
-        BatchExecutionCommandImpl executionCommand = new BatchExecutionCommandImpl(commands);
-        executionCommand.setLookup("defaultKieSession");
-
-        InsertObjectCommand insertObjectCommand = new InsertObjectCommand();
-        insertObjectCommand.setOutIdentifier("person1");
-        insertObjectCommand.setObject("unyil");
-
-        FireAllRulesCommand fireAllRulesCommand = new FireAllRulesCommand();
-
-        commands.add(insertObjectCommand);
-        commands.add(fireAllRulesCommand);
-        
-        //commands.add((GenericCommand<?>) KieServices.Factory.get().getCommands().newInsert("john", "person1"));
-        //commands.add(fireAllRulesCommand);
-        //commands.add((GenericCommand<?>) KieServices.Factory.get().getCommands().newGetObjects("person1"));
-
-        RuleServicesClient ruleClient = kieServicesClient.getServicesClient(RuleServicesClient.class);
-        ServiceResponse<ExecutionResults> response = ruleClient.executeCommandsWithResults(containerId, executionCommand);
-        System.out.println("\t######### Rules executed. Response: " + response);
-        
-        Object outputObject;
-        if (response.getType().equals(ServiceResponse.ResponseType.SUCCESS)){
-        	ExecutionResults actualData = response.getResult();
-        	Collection<String> identifiers = actualData.getIdentifiers();
-        	for (String id : identifiers) { 
-        		outputObject = actualData.getValue(id); 
-        		System.out.println("\t\t######### Response data -> id: " + id + ", value: " + outputObject);
-        	}
-        }
+        ProcessInstance processInstance = queryClient.findProcessInstanceById(processInstanceId);
+        System.out.println("\t######### ProcessInstance: " + processInstance);
         
         System.out.println("Execution completed in " + (System.currentTimeMillis() - start));
 

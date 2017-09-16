@@ -3,7 +3,7 @@ DocumentType=MainDocument
 
 [LIFE 1]
 Surname=PUTRI
-Forenames=WIJAYA
+Forenames=DARMAWAN
 DateOfBirth=16/05/1986
 Gender=F
 MaritalStatus=Married

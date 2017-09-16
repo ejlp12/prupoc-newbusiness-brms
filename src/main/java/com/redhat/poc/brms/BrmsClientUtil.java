@@ -45,6 +45,8 @@ public class BrmsClientUtil {
     }
     	
     public static void init() {
+    	
+    	System.out.println("\t##### KieServicesClient.init()");
         
         final String serverUrl = AppProperties.getString("brms.kieServerUrl");
         final String user = AppProperties.getString("brms.username");
@@ -71,14 +73,12 @@ public class BrmsClientUtil {
         }
         configuration.addJaxbClasses(classes); 
         
-        
-        
-        
         kieServicesClient =  KieServicesFactory.newKieServicesClient(configuration);
         
         disposeContainer(containerId);
         checkAndDeployContainter(containerId, projectRelease);
-        //listCapabilities();
+        checkAndDeployContainter(containerId, projectRelease);
+        listCapabilities();
         
     }
     
@@ -88,7 +88,7 @@ public class BrmsClientUtil {
         // check if the container is not yet deployed, if not deploy it
         if (containers != null && containers.getContainers() != null) {
         	if (containers.getContainers().size() == 0) {
-        		System.out.println("\t######### No containers available...");
+        		System.out.println("\t######### No containers available...1");
         	} else {		
                 for (KieContainerResource kieContainerResource : containers.getContainers()) {
                     if (kieContainerResource.getContainerId().equals(containerId)) {
@@ -102,7 +102,7 @@ public class BrmsClientUtil {
                 }	
         	}        	
         } else {
-        	System.out.println("\t######### No containers available...");
+        	System.out.println("\t######### No containers available...2");
         }
         
         // deploy container if not there yet        
@@ -110,8 +110,7 @@ public class BrmsClientUtil {
         	System.out.println("\t######### EJLP12: Container containerId='" + containerId + "' not found");
             System.out.println("\t######### Deploying container '" + containerId + "'");
             
-            final String[] releaseParts = projectRelease.split(":");
-            final ReleaseId releaseId = new ReleaseId(releaseParts[0], releaseParts[1], releaseParts[2]);
+            ReleaseId releaseId = getReleaseId(projectRelease);
             
             KieContainerResource resource = new KieContainerResource(containerId, releaseId); 
             ServiceResponse<KieContainerResource> createResponse = kieServicesClient.createContainer(containerId, resource);
@@ -124,7 +123,13 @@ public class BrmsClientUtil {
 		
 	}
     
-    public void listContainers() {  
+    private static ReleaseId getReleaseId(String projectRelease) {
+        String[] releaseParts = projectRelease.split(":");
+        ReleaseId releaseId = new ReleaseId(releaseParts[0], releaseParts[1], releaseParts[2]);
+		return releaseId;
+	}
+
+	public void listContainers() {  
         KieContainerResourceList containersList = kieServicesClient.listContainers().getResult();  
         List<KieContainerResource> kieContainers = containersList.getContainers();  
         System.out.println("Available containers: ");  

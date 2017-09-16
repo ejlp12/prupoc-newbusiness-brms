@@ -8,11 +8,13 @@ import prupoc.newbusiness.CoverageData;
 
 import com.redhat.poc.StringUtil;
 import com.redhat.poc.brms.BrmsBatchExecutionService;
+import com.redhat.poc.brms.BrmsConstants;
+import com.redhat.poc.brms.BrmsExecutionFactory;
 
 public class TestRuleExecutionBatch {
 	
 	// Set rule-flow-group or activation-group for testing
-	static String ACTIVATION_GROUP = "rule-bmi-female";
+	static String ACTIVATION_GROUP = BrmsConstants.RULE_FLOW_GROUP_INSURABLE_INTEREST;
 	
 
     public static void main(String[] args) throws Exception {	
@@ -22,13 +24,21 @@ public class TestRuleExecutionBatch {
     	List<Object> factData = SampleDataFactory.getGenerator().getList();
     	
     	// Execute in the remote BRMS server (container)
-    	List<Object> ruleResult = BrmsBatchExecutionService.execute(factData, ACTIVATION_GROUP);
+    	List<Object> ruleResult = BrmsExecutionFactory.getBatchService(BrmsExecutionFactory.SERVICE_LOCATION_REMOTE)
+    			.execute(factData, ACTIVATION_GROUP);
     	
     	if (ruleResult != null) {
     		int i = 1;
         	for (Object obj : ruleResult) {
         		CoverageData data = (CoverageData) obj;
         		System.out.println(i + " " + StringUtil.printSimple(data));
+        		System.out.println(i + " getGender: " + data.getGender());
+        		System.out.println(i + " getMaritalStatus: " + data.getMaritalStatus());
+        		System.out.println(i + " getPolicyOwner: " + data.getPolicyOwner());
+        		System.out.println(i + " getInsurableInterest: " + data.getInsurableInterest());
+        		System.out.println(i + " getAgeInYear: " + data.getAgeInYear());
+        		System.out.println(i + " >>> getRuleResultInsurableInterest: " + data.getRuleResultInsurableInterest());
+        		//System.out.println(i + " ruleResultBMI: " + data.getRuleResultBMI());
         		i++;
         	}    		
     	} else {

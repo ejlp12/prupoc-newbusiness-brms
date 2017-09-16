@@ -1,11 +1,17 @@
 package com.redhat.poc.test;
 
+import java.text.ParseException;
+
 import com.redhat.poc.Utility;
 
 public class TestCalculateAge {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		//Test only
-		String birthDate = "23/09/2000";
+		String birthDate = "16/05/1986";
+		
+		System.out.println( "Birthdate: " + birthDate  + ", ageInYear: " + Utility.calculateAgeInYear(birthDate, "dd/MM/yyyy"));
+		
+		 birthDate = "23/09/2000";
 		
 		System.out.println( "Birthdate: " + birthDate  + ", ageInYear: " + Utility.calculateAgeInYear(birthDate, "dd/MM/yyyy"));
 		

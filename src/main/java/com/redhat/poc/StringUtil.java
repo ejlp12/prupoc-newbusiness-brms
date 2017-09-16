@@ -13,13 +13,21 @@ public class StringUtil {
 	public static String printSimple(CoverageData data) {
 		return CoverageData.class.getCanonicalName() + " [documentType=" + data.getDocumentType() 
 				+ ", gender=" + data.getGender()
-				+ ", maritalStatus=" + data.getMaritalStatus() + ", height=" + data.getHeight()
-				+ ", weight=" + data.getWeight() + ", policyNumber=" + data.getPolicyNumber()
-				+ ", policyCode=" + data.getPolicyCode() + ", productCode=" + data.getProductCode()
-				+ ", policyOwner=" + data.getPolicyOwner() + ", insurableInterest="
-				+ data.getInsurableInterest() + ", occupation=" + data.getOccupation() + ", forenames="
-				+ data.getForenames() + ", surname=" + data.getSurname() + ", dateOfBirth="
-				+ data.getDateOfBirth() + ", ruleResultBMI=" + data.getRuleResultBMI()
+				+ ", maritalStatus=" + data.getMaritalStatus() 
+				+ ", height=" + data.getHeight()
+				+ ", weight=" + data.getWeight() 
+				+ ", policyNumber=" + data.getPolicyNumber()
+				+ ", policyCode=" + data.getPolicyCode() 
+				+ ", productCode=" + data.getProductCode()
+				+ ", policyOwner=" + data.getPolicyOwner() 
+				+ ", insurableInterest=" + data.getInsurableInterest() 
+				+ ", occupation=" + data.getOccupation() 
+				+ ", forenames=" + data.getForenames() 
+				+ ", surname=" + data.getSurname() 
+				+ ", dateOfBirth=" + data.getDateOfBirth() 
+				+ ", ageInYear=" + data.getAgeInYear() 
+				+ ", ageInMonth=" + data.getAgeInMonth()				
+				+ ", ruleResultBMI=" + data.getRuleResultBMI()
 				+ ", ruleResultInsurableInterest=" + data.getRuleResultInsurableInterest()
 				+ ", ruleResultOccupationBenefit=" + data.getRuleResultOccupationBenefit()
 				+ ", ruleResultNonMedicalLimit=" + data.getRuleResultNonMedicalLimit()
@@ -27,8 +35,7 @@ public class StringUtil {
 				+ ", ruleResultBenefitADD=" + data.getRuleResultBenefitADD()
 				+ ", ruleResultBenefitTPD=" + data.getRuleResultBenefitTPD()
 				+ ", ruleResultBenefitCC=" + data.getRuleResultBenefitCC()
-				+ ", ruleResultBenefitHealth=" + data.getRuleResultBenefitHealth()
-				+ ", ageInYear=" + data.getAgeInYear() + ", ageInMonth=" + data.getAgeInMonth() + "]";
+				+ ", ruleResultBenefitHealth=" + data.getRuleResultBenefitHealth() + "]";
 	}
 
 	/**

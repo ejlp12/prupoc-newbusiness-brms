@@ -10,10 +10,15 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import prupoc.newbusiness.CoverageData;
 import prupoc.newbusiness.SumAssured;
 
 public class CoverageDataParser {
+	
+	private static Logger LOG = LoggerFactory.getLogger(CoverageDataParser.class);
 	
 	public static final String HEADER_DOCUMENT_TYPE = "DOCUMENT TYPE";
 	public static final String HEADER_LIFE_1 = "LIFE 1";
@@ -51,12 +56,12 @@ public class CoverageDataParser {
 			// Check if it is a section e.g. [SECTION], then ignore it.
 			if (trimline.charAt(0) == '[' && trimline.endsWith("]")) {
 				section = trimline.substring(1, trimline.length() - 1);
-				// System.out.println("SECTION: " + section);
+				// LOG.debug("SECTION: " + section);
 			} else {
 				
 				// Split each key-value pair to key = param[0] and value = param[1]
 				String[] param = trimline.split("=");
-				//System.out.println( param[0].trim() + " -> " + param[1].trim());
+				//LOG.debug( param[0].trim() + " -> " + param[1].trim());
 
 				// For some section, we need to create an array because it contains multiple same key-names
 				switch (section) {
@@ -88,7 +93,7 @@ public class CoverageDataParser {
 					} else if( param[0].equals("SumAssuredCurrency") ) {
 						sumAssured.setCurrency(param[1]);
 						
-						//System.out.println(sumAssured);
+						//LOG.debug(sumAssured);
 						sumAssuredList.add(sumAssured);
 						
 						data.setSumAssured(sumAssuredList);
@@ -103,7 +108,7 @@ public class CoverageDataParser {
 					paramString[0] = String.class;
 	
 					try {
-						System.out.println("\t... [TEST] set" + param[0]);
+						LOG.debug("\t... [TEST] set" + param[0] + " = " + new String(param[1]) );
 						Method method = data.getClass().getDeclaredMethod("set" + param[0], paramString);
 						method.invoke(data, new String(param[1]));
 					} catch (NoSuchMethodException e) {
@@ -129,7 +134,7 @@ public class CoverageDataParser {
 		
 		try {
 			data.setAgeInMonth(Utility.calculateAgeInMonth(data.getDateOfBirth(), "dd/MM/yyyy"));
-			data.setAgeInYear(Utility.calculateAgeInMonth(data.getDateOfBirth(), "dd/MM/yyyy"));
+			data.setAgeInYear(Utility.calculateAgeInYear(data.getDateOfBirth(), "dd/MM/yyyy"));
 		} catch (ParseException e) {
 			throw new RuntimeException(e);
 		}
@@ -141,6 +146,7 @@ public class CoverageDataParser {
 		data.setSumAssured( sumAssuredList );	
 		
 		return data;
+		
 	}
 
 }

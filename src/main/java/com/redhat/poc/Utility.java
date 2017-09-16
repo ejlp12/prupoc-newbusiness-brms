@@ -1,32 +1,33 @@
 package com.redhat.poc;
 
-import org.joda.time.LocalDate;
-import org.joda.time.Months;
-import org.joda.time.Years;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 
+// This class will need Java 1.8
 public class Utility {
-	
-	public static int calculateAgeInMonth(String birthDate, String dateFormat) {
-		
-		DateTimeFormatter dtf = DateTimeFormat.forPattern(dateFormat);
-		LocalDate birthdate = dtf.parseDateTime(birthDate).toLocalDate();
-		LocalDate now = new LocalDate();
-		Months age = Months.monthsBetween(birthdate, now);
-	
-		return age.getMonths();
-		
+
+	public static Integer calculateAgeInYear(String dateOfBirth, String dateFormat) throws ParseException {
+		SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+		LocalDate birthdate = formatter.parse(dateOfBirth).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate now = (new Date()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		int age = Period.between(birthdate, now).getYears();
+
+		return age;
 	}
-	
-	public static int calculateAgeInYear(String birthDate, String dateFormat) {
-		
-		DateTimeFormatter dtf = DateTimeFormat.forPattern(dateFormat);
-		LocalDate birthdate = dtf.parseDateTime(birthDate).toLocalDate();
-		LocalDate now = new LocalDate();
-		Years age = Years.yearsBetween(birthdate, now);
-	
-		return age.getYears();
-		
+
+	public static Integer calculateAgeInMonth(String dateOfBirth, String dateFormat) throws ParseException {
+
+		SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+		LocalDate birthdate = formatter.parse(dateOfBirth).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate now = (new Date()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		int age = Period.between(birthdate, now).getYears();
+		age = (age * 12) + Period.between(birthdate, now).getMonths();
+
+		return age;
 	}
+
 }

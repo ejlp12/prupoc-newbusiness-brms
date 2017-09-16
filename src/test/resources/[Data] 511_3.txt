@@ -2,8 +2,8 @@
 DocumentType=MainDocument
 
 [LIFE 1]
-Surname=DARYANTO
-Forenames=WIJAYA
+Surname=AGUNG
+Forenames=BUDIAWAN
 DateOfBirth=16/05/1980
 Gender=M
 MaritalStatus=Married

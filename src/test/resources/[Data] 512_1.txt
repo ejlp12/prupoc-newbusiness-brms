@@ -2,8 +2,8 @@
 DocumentType=MainDocument
 
 [LIFE 1]
-Surname=DARYANTO
-Forenames=WIJAYA
+Surname=IPUNG
+Forenames=HARTONO
 DateOfBirth=16/05/1986
 Gender=M
 MaritalStatus=Married
